@@ -6,7 +6,17 @@ const ChartTheme = (() => {
       bg: styles.getPropertyValue('--bg').trim(),
       inverseBg: styles.getPropertyValue('--inverse-bg').trim(),
       inverseFg: styles.getPropertyValue('--inverse-fg').trim(),
+      primary: styles.getPropertyValue('--blue-500').trim(),
+      deep: styles.getPropertyValue('--blue-700').trim(),
+      ink: styles.getPropertyValue('--blue-900').trim(),
+      accent: styles.getPropertyValue('--cyan-500').trim(),
+      pale: styles.getPropertyValue('--blue-100').trim(),
     };
+  };
+
+  const colors = () => {
+    const { primary, deep, ink, accent } = tokens();
+    return [primary, deep, accent, ink];
   };
 
   function patternFactory(type = 'solid') {
@@ -32,7 +42,7 @@ const ChartTheme = (() => {
 
   function apply() {
     if (!window.Chart) return;
-    const { fg, inverseBg, inverseFg } = tokens();
+    const { fg, inverseBg, inverseFg, pale } = tokens();
     Chart.defaults.color = fg;
     Chart.defaults.font.family = 'Inter';
     Chart.defaults.borderColor = fg;
@@ -42,12 +52,12 @@ const ChartTheme = (() => {
     Chart.defaults.plugins.tooltip.bodyColor = inverseFg;
     Chart.defaults.plugins.tooltip.borderColor = fg;
     Chart.defaults.plugins.tooltip.borderWidth = 2;
-    Chart.defaults.scale.grid.color = fg;
-    Chart.defaults.scale.grid.borderDash = [2, 3];
+    Chart.defaults.scale.grid.color = pale;
+    Chart.defaults.scale.grid.borderDash = [4, 4];
     Chart.defaults.scale.ticks.color = fg;
   }
 
-  return { tokens, patternFactory, apply };
+  return { tokens, colors, patternFactory, apply };
 })();
 
 window.ChartTheme = ChartTheme;

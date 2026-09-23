@@ -6,15 +6,15 @@
   --bs-emphasis-color: var(--fg);
   --bs-secondary-color: var(--fg);
   --bs-border-color: var(--border);
-  --bs-primary: var(--fg);
+  --bs-primary: var(--blue-700);
   --bs-success: var(--fg);
   --bs-danger: var(--fg);
   --bs-warning: var(--fg);
   --bs-info: var(--fg);
   --bs-secondary: var(--fg);
   --bs-light: var(--bg);
-  --bs-dark: var(--inverse-bg);
-  --bs-primary-rgb: 0, 0, 0;
+  --bs-dark: var(--blue-900);
+  --bs-primary-rgb: 11, 79, 156;
   --bs-success-rgb: 0, 0, 0;
   --bs-danger-rgb: 0, 0, 0;
   --bs-warning-rgb: 0, 0, 0;

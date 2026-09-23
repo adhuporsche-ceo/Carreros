@@ -49,6 +49,7 @@ function renderReadinessBars(cov = {}) {
 function renderAnalyticsCharts(data) {
   if (window.ChartTheme) ChartTheme.apply();
   const charts = data.charts || {};
+  const chartColors = ChartTheme.colors();
 
   // 1. CGPA Distribution
   const ctxCgpa = document.getElementById('analyticsCgpaChart');
@@ -61,8 +62,9 @@ function renderAnalyticsCharts(data) {
           {
             label: 'Students Count',
             data: charts.cgpaDistribution.data || [],
-            backgroundColor: ChartTheme.patternFactory('solid'),
-            borderRadius: 6,
+            backgroundColor: chartColors[0],
+            borderColor: chartColors[1],
+            borderWidth: 2,
           },
         ],
       },
@@ -84,13 +86,14 @@ function renderAnalyticsCharts(data) {
         datasets: [
           {
             label: 'Average SGPA',
-              backgroundColor: [ChartTheme.patternFactory('solid'), ChartTheme.patternFactory('diagonal'), ChartTheme.patternFactory('dots')],
-            borderColor: '#ffffff',
-            backgroundColor: ChartTheme.patternFactory('solid'),
-            fill: true,
-            tension: 0.35,
-            pointRadius: 5,
-            pointBackgroundColor: '#ffffff',
+            borderColor: chartColors[1],
+            backgroundColor: chartColors[0],
+            fill: false,
+            tension: 0.25,
+            pointRadius: 4,
+            pointBackgroundColor: chartColors[3],
+            pointBorderColor: chartColors[1],
+            pointBorderWidth: 2,
           },
         ],
       },
@@ -108,13 +111,13 @@ function renderAnalyticsCharts(data) {
     new Chart(ctxSkills, {
       type: 'bar',
       data: {
-              backgroundColor: [ChartTheme.patternFactory('diagonal'), ChartTheme.patternFactory('solid')],
-        datasets: [
+              datasets: [
           {
             label: 'Students with Skill',
             data: data.topSkills.data || [],
-            backgroundColor: ChartTheme.patternFactory('horizontal'),
-            borderRadius: 6,
+            backgroundColor: chartColors[2],
+            borderColor: chartColors[1],
+            borderWidth: 2,
           },
         ],
       },
@@ -138,8 +141,9 @@ function renderAnalyticsCharts(data) {
           {
             label: 'Students Fluent',
             data: data.topLanguages.data || [],
-            backgroundColor: ChartTheme.patternFactory('vertical'),
-            borderRadius: 6,
+            backgroundColor: chartColors[1],
+            borderColor: chartColors[3],
+            borderWidth: 2,
           },
         ],
       },
@@ -161,9 +165,9 @@ function renderAnalyticsCharts(data) {
         datasets: [
           {
             data: charts.careerGoals.data || [],
-            backgroundColor: [ChartTheme.patternFactory('solid'), ChartTheme.patternFactory('diagonal'), ChartTheme.patternFactory('dots')],
+            backgroundColor: chartColors,
             borderWidth: 2,
-            borderColor: '#ffffff',
+            borderColor: chartColors[3],
           },
         ],
       },
@@ -185,9 +189,9 @@ function renderAnalyticsCharts(data) {
         datasets: [
           {
             data: charts.arrearStatus.data || [],
-            backgroundColor: [ChartTheme.patternFactory('diagonal'), ChartTheme.patternFactory('solid')],
+            backgroundColor: [chartColors[1], chartColors[2]],
             borderWidth: 2,
-            borderColor: '#ffffff',
+            borderColor: chartColors[3],
           },
         ],
       },
@@ -208,9 +212,9 @@ function renderAnalyticsCharts(data) {
         datasets: [
           {
             data: charts.categoryRatio.data || [],
-            backgroundColor: [ChartTheme.patternFactory('solid'), ChartTheme.patternFactory('diagonal')],
+            backgroundColor: [chartColors[0], chartColors[2]],
             borderWidth: 2,
-            borderColor: '#ffffff',
+            borderColor: chartColors[3],
           },
         ],
       },
@@ -233,8 +237,9 @@ function renderAnalyticsCharts(data) {
           {
             label: 'Enrollment',
             data: charts.departmentCounts.data || [],
-            backgroundColor: ChartTheme.patternFactory('cross'),
-            borderRadius: 6,
+            backgroundColor: chartColors[0],
+            borderColor: chartColors[1],
+            borderWidth: 2,
           },
         ],
       },
@@ -257,9 +262,9 @@ function renderAnalyticsCharts(data) {
         datasets: [
           {
             data: [intSum.open, intSum.inProgress, intSum.resolved],
-            backgroundColor: [ChartTheme.patternFactory('dots'), ChartTheme.patternFactory('diagonal'), ChartTheme.patternFactory('solid')],
+            backgroundColor: [chartColors[2], chartColors[0], chartColors[1]],
             borderWidth: 2,
-            borderColor: '#ffffff',
+            borderColor: chartColors[3],
           },
         ],
       },

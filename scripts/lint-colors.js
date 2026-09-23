@@ -3,7 +3,7 @@ const path = require('path');
 
 const root = path.join(__dirname, '..', 'public');
 const extensions = new Set(['.css', '.js', '.html', '.svg']);
-const allowedHex = new Set(['#000', '#000000', '#fff', '#ffffff', '#fff2df', '#fbe9b3', '#f2ca74', '#f5a359', '#f9b87e']);
+const allowedHex = new Set(['#000', '#000000', '#fff', '#ffffff', '#f5faff', '#e6f1ff', '#c9e0f7', '#2f80ed', '#0b4f9c', '#12355b', '#2ca6c9']);
 const colorFunctions = /\b(?:rgb|rgba|hsl|hsla)\s*\(/gi;
 const forbiddenEffects = /\b(?:linear-gradient|radial-gradient|conic-gradient|blur)\s*\(|\bopacity\s*:\s*[^;]+|\bfilter\s*:/gi;
 const namedColors = /(?:^|[\s:(,])(?:red|green|blue|yellow|orange|purple|pink|gray|grey|brown|teal|navy|lime|cyan|magenta|gold|silver)(?:$|[\s;),])/i;
