@@ -64,7 +64,17 @@ document.addEventListener('DOMContentLoaded', () => {
           body: JSON.stringify({ email, password }),
         });
 
-        const data = await response.json();
+        const responseText = await response.text();
+        let data;
+        try {
+          data = responseText ? JSON.parse(responseText) : {};
+        } catch (parseError) {
+          throw new Error(
+            response.ok
+              ? 'The server returned an invalid response. Please check the deployment configuration.'
+              : `Server error (${response.status}). Please check that the API is running.`
+          );
+        }
 
         if (!response.ok) {
           throw new Error(data.message || 'Login failed. Please check credentials.');

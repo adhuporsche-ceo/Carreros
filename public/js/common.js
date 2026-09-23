@@ -191,7 +191,17 @@ async function apiCall(endpoint, options = {}) {
       return res;
     }
 
-    const data = await res.json();
+    const responseText = await res.text();
+    let data;
+    try {
+      data = responseText ? JSON.parse(responseText) : {};
+    } catch (parseError) {
+      throw new Error(
+        res.ok
+          ? 'The server returned an invalid response. Please check the deployment configuration.'
+          : `Server error (${res.status}). Please check that the API is running.`
+      );
+    }
     if (!res.ok) {
       const errorMsg = data.message || (data.errors ? data.errors.join(', ') : 'Request failed');
       throw new Error(errorMsg);
