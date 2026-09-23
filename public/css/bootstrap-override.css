@@ -1,0 +1,27 @@
+:root,
+[data-bs-theme='light'],
+[data-bs-theme='dark'] {
+  --bs-body-bg: var(--bg);
+  --bs-body-color: var(--fg);
+  --bs-emphasis-color: var(--fg);
+  --bs-secondary-color: var(--fg);
+  --bs-border-color: var(--border);
+  --bs-primary: var(--fg);
+  --bs-success: var(--fg);
+  --bs-danger: var(--fg);
+  --bs-warning: var(--fg);
+  --bs-info: var(--fg);
+  --bs-secondary: var(--fg);
+  --bs-light: var(--bg);
+  --bs-dark: var(--inverse-bg);
+  --bs-primary-rgb: 0, 0, 0;
+  --bs-success-rgb: 0, 0, 0;
+  --bs-danger-rgb: 0, 0, 0;
+  --bs-warning-rgb: 0, 0, 0;
+  --bs-info-rgb: 0, 0, 0;
+  --bs-secondary-rgb: 0, 0, 0;
+  --bs-light-rgb: 255, 255, 255;
+  --bs-dark-rgb: 0, 0, 0;
+}
+
+.btn-close { color: var(--fg); }

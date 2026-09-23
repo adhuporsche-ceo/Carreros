@@ -1,0 +1,39 @@
+{
+  "name": "student-academic-personal-career-profiling-system",
+  "version": "1.0.0",
+  "description": "Student Academic Personal and Career Profiling System for College Mentors & Faculty",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "seed": "node seed/seed.js",
+    "test:api": "node test/api-test.js",
+    "lint:colors": "node scripts/lint-colors.js"
+  },
+  "keywords": [
+    "student-profiling",
+    "academic-system",
+    "mentoring",
+    "college",
+    "full-stack"
+  ],
+  "author": "College Engineering Faculty & Mentors",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.3.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongodb-memory-server": "^10.1.4",
+    "mongoose": "^8.9.5",
+    "morgan": "^1.10.0",
+    "socket.io": "^4.8.3",
+    "validator": "^13.12.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
